@@ -39,12 +39,15 @@ setup(
     author_email = "tylucaskelley@gmail.com",
     license = "MIT",
     url = "http://github.com/tylucaskelley/licenser",
+    download_url = "https://github.com/tylucaskelley/licenser/tarball/v0.1.0",
     long_description = __doc__,
     classifiers = [
         "Programming Language :: Python",
-        "License :: MIT",
+        "Operating System :: MacOS :: MacOS X",
+        "Operating System :: POSIX :: Linux",
+        "License :: OSI Approved :: MIT License",
         "Intended Audience :: Developers",
-        "Topic :: Licensing"
+        "Topic :: Utilities"
     ],
     py_modules=['licenser']
 )

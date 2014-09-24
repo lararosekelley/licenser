@@ -24,25 +24,17 @@ Copyright (c) 2014 Ty-Lucas Kelley <tylucaskelley@gmail.com>
     
 """
 
-from setuptools import setup
+from distutils.core import setup
 
 setup(
     name = "licenser",
-    version = "0.1.1",
+    version = "0.1.2",
     description = "Quickly add an open-source license to your project.",
-    entry_points = {
-        'console_scripts': [
-            'licenser = licenser.licenser:add_license'
-        ]
-    },
     author = "Ty-Lucas Kelley",
-    package_dir = {
-        '': 'licenser'
-    },
     author_email = "tylucaskelley@gmail.com",
     license = "MIT",
     url = "http://github.com/tylucaskelley/licenser",
-    download_url = "https://github.com/tylucaskelley/licenser/tarball/v0.1.1",
+    download_url = "https://github.com/tylucaskelley/licenser/tarball/v0.1.2",
     long_description = __doc__,
     classifiers = [
         "Programming Language :: Python",
@@ -52,5 +44,9 @@ setup(
         "Intended Audience :: Developers",
         "Topic :: Utilities"
     ],
-    py_modules=['licenser']
+    entry_points = {
+        'console_scripts': [
+            'licenser = licenser.licenser:add_license'
+        ]
+    }
 )

@@ -18,7 +18,7 @@ the command line. Supported licenses as of now include:
 First, make sure you have the dependencies:
 
 * Python
-* pip & setuptools
+* pip
 
 Then, install Licenser:
 

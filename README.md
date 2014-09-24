@@ -5,29 +5,32 @@
 ---
 
 Finding and adding a license to your project is an annoying process, 
-and can be quite tedious depending on the license you choose. 
+and can be quite tedious depending on the license you choose.
 
-Licenser lets you apply the MIT License to your code, and is intended
-for smaller projects where something as large as the GNU or Apache license
-isn't necessary.
+Licesnser allows you to quickly add a license to your project from
+the command line. Supported licenses as of now include:
+
+* MIT
+* New BSD
 
 ### Installation
 
 First, make sure you have the dependencies:
 
-* Python 2 or 3
-* pip
+* Python
+* pip & setuptools
 
 Then, install Licenser:
 
     $ pip install licenser
     
-### Usage
+### Example Usage
 
 It couldn't be simpler:
 
     $ cd path/to/project
-    $ licenser -n Your Name -e you@example.com
+    $ licenser -l MIT -n "Your name" -e you@example.com -p "Project name"
     
 Boom! You'll now have a copy of the MIT License with your name and year in the root project folder.
-The year will automatically be filled in using the current year.
+The year will automatically be filled in using the current year. Make sure you enclose your name
+with quotes so the program treats it as one argument.

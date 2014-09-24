@@ -1,5 +1,5 @@
 """
-licenser, v0.1
+licenser, v0.1.0
 --------
 
 licenser is a simple way to quickly add an open-source license to
@@ -28,7 +28,7 @@ from setuptools import setup
 
 setup(
     name = "licenser",
-    version = "0.1",
+    version = "0.1.0",
     description = "Quickly add an open-source license to your project.",
     entry_points = {
         'console_scripts': [

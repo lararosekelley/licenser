@@ -2,13 +2,12 @@
 
 from argparse import ArgumentParser as parser
 from datetime import date
-import re
 
 licenses = {
     'MIT': """
-[project]
+{project}
 
-Copyright (c) [year] [author]
+Copyright (c) {year} {author}
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +28,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
     """,
     'BSD': """
-Copyright (c) [year], [author]
+Copyright (c) {year}, {author}
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -42,7 +41,7 @@ modification, are permitted provided that the following conditions are met:
   this list of conditions and the following disclaimer in the documentation
   and/or other materials provided with the distribution.
 
-* Neither the name of [project] nor the names of its
+* Neither the name of {project} nor the names of its
   contributors may be used to endorse or promote products derived from
   this software without specific prior written permission.
 
@@ -78,9 +77,7 @@ def add_license():
     except KeyError:
         p.exit(1, 'fatal: license %s does not exist\n' % args.license)
     
-    license = re.sub(r'\[[author]+\]', author, license)
-    license = re.sub(r'\[[year]+\]', year, license)
-    license = re.sub(r'\[[project]+\]', project, license)
+    license = license.format(author=author, year=year, project=project)
     
     with open('LICENSE.txt', 'w') as f:
         f.write(license)

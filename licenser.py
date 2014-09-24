@@ -82,4 +82,5 @@ def add_license():
     license = re.sub(r'\[[year]+\]', year, license)
     license = re.sub(r'\[[project]+\]', project, license)
     
-    print license
+    with open('LICENSE.txt', 'w') as f:
+        f.write(license)

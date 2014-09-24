@@ -1,4 +1,4 @@
-# Licenser
+# Licenser, v0.1
 
 *Quickly add an open source license to your project!*
 

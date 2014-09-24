@@ -1,5 +1,5 @@
 """
-licenser
+licenser, v0.1
 --------
 
 licenser is a simple way to quickly add an open-source license to

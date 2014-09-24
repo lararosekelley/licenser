@@ -1,5 +1,5 @@
 """
-licenser, v0.2.1
+licenser, v0.2.2
 --------
 
 licenser is a simple way to quickly add an open-source license to
@@ -27,13 +27,13 @@ from distutils.core import setup
 
 setup(
     name = "licenser",
-    version = "0.2.1",
+    version = "0.2.2",
     description = "Quickly add an open-source license to your project.",
     author = "Ty-Lucas Kelley",
     author_email = "tylucaskelley@gmail.com",
     license = "MIT",
     url = "http://github.com/tylucaskelley/licenser",
-    download_url = "https://github.com/tylucaskelley/licenser/tarball/v0.2.1",
+    download_url = "https://github.com/tylucaskelley/licenser/tarball/v0.2.2",
     long_description = __doc__,
     classifiers = [
         "Programming Language :: Python",

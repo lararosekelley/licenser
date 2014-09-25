@@ -4,8 +4,7 @@ from argparse import ArgumentParser as parser
 from datetime import date
 
 licenses = {
-    'MIT': """
-{project}
+    'MIT': """{project}
 
 Copyright (c) {year} {author}
 
@@ -27,8 +26,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
     """,
-    'BSD': """
-Copyright (c) {year}, {author}
+    'BSD': """Copyright (c) {year}, {author}
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -65,12 +63,14 @@ def add_license():
     p.add_argument('-e', dest='email', required=True, help='your email address')
     p.add_argument('-n', dest='name', required=True, help='your name')
     p.add_argument('-p', dest='project', required=True, help='project name')
-    
+    p.add_argument('--no', action='store_true', required=False, help='removes file extension')
+
     args = p.parse_args()
     
     author = args.name + ' <' + args.email + '>'
     year = str(date.today().year)
     project = args.project
+    ext = '' if args.no else '.txt'
     
     try:
         license = licenses[args.license]
@@ -79,5 +79,5 @@ def add_license():
     
     license = license.format(author=author, year=year, project=project)
     
-    with open('LICENSE.txt', 'w') as f:
+    with open('LICENSE' + ext, 'w') as f:
         f.write(license)

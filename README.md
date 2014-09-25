@@ -34,3 +34,5 @@ It couldn't be simpler:
 Boom! You'll now have a copy of the MIT License with your name and year in the root project folder.
 The year will automatically be filled in using the current year. Make sure you enclose your name
 with quotes so the program treats it as one argument.
+
+If you don't want the file extension on your license, just add the "--no" flag at runtime.

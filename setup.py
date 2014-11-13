@@ -1,19 +1,23 @@
 #!/usr/bin/env python
 
+from os.path import dirname
+
 try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
 
+pwd = dirname(__file__)
+
 setup(
     name="licenser",
-    version="1.0.2",
+    version="1.0.3",
     description="Quickly add an open-source license to your project.",
     author="Ty-Lucas Kelley",
     author_email="tylucaskelley@gmail.com",
     license="MIT",
     url="http://github.com/tylucaskelley/licenser",
-    download_url="https://github.com/tylucaskelley/licenser/tarball/v1.0.2",
+    download_url="https://github.com/tylucaskelley/licenser/tarball/v1.0.3",
     long_description=open("README.md").read(),
     classifiers=[
         "Programming Language :: Python",

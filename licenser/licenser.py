@@ -4,9 +4,11 @@ from argparse import ArgumentParser as parser
 from datetime import date
 from os.path import expanduser
 from os.path import isfile
+from os.path import dirname
 import json
 
 config_file = expanduser('~/.licenser.json')
+pwd = dirname(__file__)
 licenses = ['GPL', 'Apache', 'Mozilla', 'MIT', 'BSD']
 
 
@@ -52,15 +54,17 @@ def __get_args(defaults):
 
 def __get_license(l):
     """Grabs the text from the specified license and header files and formats them."""
-    license_file = l
-    license_header = l + '_header'
+    license_file = pwd + '/licenses/' + l
+    license_header = pwd + '/licenses/' + l + '_header'
     license = None
     header = None
 
     if isfile(license_file):
+        print(license_file + " is a file")
         with open(license_file) as f:
             license = f.read()
     if isfile(license_header):
+        print(license_header + " is a file")
         with open(license_header) as f:
             header = f.read()
 

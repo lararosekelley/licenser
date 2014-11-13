@@ -60,11 +60,9 @@ def __get_license(l):
     header = None
 
     if isfile(license_file):
-        print(license_file + " is a file")
         with open(license_file) as f:
             license = f.read()
     if isfile(license_header):
-        print(license_header + " is a file")
         with open(license_header) as f:
             header = f.read()
 

@@ -1,5 +1,7 @@
 # Licenser
 
+**Current Release: v1.0.2**
+
 *Quickly add an open source license to your project!*
 
 ---
@@ -63,6 +65,8 @@ It needs to look something like this:
 You can leave out any of the fields (except `filetypes`); anything that isn't found in the JSON file will have
 to be passed in when you run the `licenser` script. Of course, you can also override this file
 with the command line arguments.
+
+### filetypes
 
 The `filetypes` object is important if you're using a license like the GPL, because they
 involve adding a header to the top of every source code file. You need to fill it in with

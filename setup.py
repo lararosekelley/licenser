@@ -1,45 +1,21 @@
-"""
-licenser, v0.2.3
---------
+#!/usr/bin/env python
 
-licenser is a simple way to quickly add an open-source license to
-your project. And it's MIT licensed!
-
-Supported licenses:
-
-* MIT
-* BSD
-
-Installation:
-
-    $ pip install licenser
-
-Usage: 
-
-    $ cd /path/to/project
-    $ licener -l LICENSE -n NAME -e EMAIL -p PROJECT
-
-Optional arguments:
-
-    --no removes file extension
-    
-Copyright (c) 2014 Ty-Lucas Kelley <tylucaskelley@gmail.com>
-    
-"""
-
-from distutils.core import setup
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
 
 setup(
-    name = "licenser",
-    version = "0.2.3",
-    description = "Quickly add an open-source license to your project.",
-    author = "Ty-Lucas Kelley",
-    author_email = "tylucaskelley@gmail.com",
-    license = "MIT",
-    url = "http://github.com/tylucaskelley/licenser",
-    download_url = "https://github.com/tylucaskelley/licenser/tarball/v0.2.3",
-    long_description = __doc__,
-    classifiers = [
+    name="licenser",
+    version="1.0.0",
+    description="Quickly add an open-source license to your project.",
+    author="Ty-Lucas Kelley",
+    author_email="tylucaskelley@gmail.com",
+    license="MIT",
+    url="http://github.com/tylucaskelley/licenser",
+    download_url="https://github.com/tylucaskelley/licenser/tarball/v1.0.0",
+    long_description=open("README.md").read(),
+    classifiers=[
         "Programming Language :: Python",
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: POSIX :: Linux",
@@ -47,10 +23,22 @@ setup(
         "Intended Audience :: Developers",
         "Topic :: Utilities"
     ],
-    entry_points = {
-        'console_scripts': [
-            'licenser = licenser:add_license'
+    entry_points={
+        "console_scripts": [
+            "licenser=licenser:main"
         ]
     },
-    py_modules = ['licenser']
+    packages=[
+        "licenser",
+        "tests"
+    ],
+    package_dir={
+        "licenser": "licenser",
+        "tests": "tests"
+    },
+    package_data={
+        "licenser": [
+            "licenses/*"
+        ]
+    }
 )

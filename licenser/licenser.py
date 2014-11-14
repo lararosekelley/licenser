@@ -101,12 +101,13 @@ def add_license():
             for root, dirs, files in os.walk(os.getcwd()):
                 for f in files:
                     if f.endswith(exts):
-                        with open(f) as src:
+                        src_file = os.path.join(root, f)
+                        comment = filetypes.get(os.path.splitext(src_file)[1])
+
+                        with open(src_file) as src:
                             first_line = src.readline()
 
                         if project not in first_line:  # check for existing license
-                            src_file = os.path.join(root, f)
-                            comment = filetypes.get(os.path.splitext(src_file)[1])
                             __add_header(src_file, header, comment)
 
 

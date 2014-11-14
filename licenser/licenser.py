@@ -85,7 +85,7 @@ def add_license():
 
         header = header.format(author=author, year=year, project=project)
         filetypes = defaults.get('filetypes')
-        exts = tuple(defaults.keys())
+        exts = tuple(filetypes.keys())
 
         matches = []
         for root, dirs, files in os.walk(os.getcwd()):

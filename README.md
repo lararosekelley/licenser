@@ -57,7 +57,14 @@ It needs to look like this:
         ".java": "//",
         ".py": "#",
         ".js": "//"
-    }
+    },
+    "ignore": [
+        "node_modules",
+        "lib",
+        "dist",
+        "Gruntfile.js",
+        ".git"
+    ]
 }
 ```
 
@@ -75,6 +82,12 @@ To avoid prepending the same source code files more than once (if you call `lice
 the script will skip any files that contain the commented out project name on the first line. If you
 want to switch licenses, you'll have to manually remove the headers from your source code.
 
+The `ignore` array is pretty important too; you don't want to be prepending license headers to
+third-party files, or minified JavaScript code.
+
 ### Contributing
 
-I accept pull requests!
+I accept pull requests! There are some potential improvements I've been thinking about:
+
+* Override global `ignore` and `filetypes` settings with a project-specific `.licenserconfig` file
+* Write tests

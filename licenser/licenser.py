@@ -98,17 +98,24 @@ def add_license():
             filetypes = defaults.get('filetypes')
             exts = tuple(filetypes.keys())
 
-            for root, dirs, files in os.walk(os.getcwd()):
+            for root, dirs, files in os.walk(os.getcwd(), topdown=True):
+                ignore = True if 'ignore' in defaults else False
+
+                if ignore:
+                    files = [f for f in files if f not in defaults['ignore']]
+                    dirs[:] = [d for d in dirs if d not in defaults['ignore']]
+
                 for f in files:
                     if f.endswith(exts):
-                        src_file = os.path.join(root, f)
-                        comment = filetypes.get(os.path.splitext(src_file)[1])
+                            src_file = os.path.join(root, f)
+                            print src_file
+                            comment = filetypes.get(os.path.splitext(src_file)[1])
 
-                        with open(src_file) as src:
-                            first_line = src.readline()
+                            with open(src_file) as src:
+                                first_line = src.readline()
 
-                        if project not in first_line:  # check for existing license
-                            __add_header(src_file, header, comment)
+                            if project not in first_line:  # check for existing license
+                                __add_header(src_file, header, comment)
 
 
 if __name__ == '__main__':

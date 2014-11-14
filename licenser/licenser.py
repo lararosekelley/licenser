@@ -108,13 +108,12 @@ def add_license():
                 for f in files:
                     if f.endswith(exts):
                             src_file = os.path.join(root, f)
-                            print src_file
                             comment = filetypes.get(os.path.splitext(src_file)[1])
 
                             with open(src_file) as src:
                                 first_line = src.readline()
 
-                            if project not in first_line:  # check for existing license
+                            if first_line is not comment + ' ' + project:
                                 __add_header(src_file, header, comment)
 
 

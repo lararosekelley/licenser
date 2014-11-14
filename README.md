@@ -20,7 +20,8 @@ the command line. Supported licenses as of now include:
 
 First, make sure you have the dependencies:
 
-* Python
+* A Mac or Linux computer (not tested on Windows)
+* Python (2 or 3)
 * pip
 
 Then, install Licenser:
@@ -45,7 +46,7 @@ If you don't want the file extension on your license, just add the "--no" flag a
 If you're like me and don't change your name very often, you can save time by creating
 a config file in your home directory.
 
-It needs to look something like this:
+It needs to look like this:
 
 ```json
 {
@@ -60,19 +61,15 @@ It needs to look something like this:
 }
 ```
 
-You can leave out any of the fields (except `filetypes`); anything that isn't found in the JSON file will have
-to be passed in when you run the `licenser` script. Of course, you can also override this file
-with the command line arguments.
+These defaults can be overridden by using the normal command-line arguments. They're optional,
+but if you want to use a license that recommends prepending your source code files with a header,
+you'll need the `filetypes` object.
 
-### filetypes
+Leaving out the `filetypes` object will simply mean skipping the step of prepending your code,
+and will result in a warning message upon program exit:
 
-The `filetypes` object is important if you're using a license like the GPL, because they
-involve adding a header to the top of every source code file. You need to fill it in with
-the type of file and the character(s) it use(s) for one-line comments.
+    warning: filetypes object missing from ~/.licenser.json
 
-Note that this is the ONLY WAY you can properly use licenses like the GPL or Apache.
-If you leave it out, the license will be added in the normal "LICENSE.txt" file,
-but the source code will not have headers prepended to it.
-
-And fear not; if you attempt to prepend a license twice to the same file, you won't end up with two
-license headers; the old one will remain in place.
+To avoid prepending the same source code files more than once (if you call `licenser` multiple times),
+the script will skip any files that contain the commented out project name on the first line. If you
+want to switch licenses, you'll have to manually remove the headers from your source code.

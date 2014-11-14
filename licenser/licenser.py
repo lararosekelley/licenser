@@ -3,7 +3,6 @@
 from argparse import ArgumentParser as parser
 from datetime import date
 import json
-import sys
 import os
 
 config_file = os.path.expanduser('~/.licenser.json')
@@ -69,7 +68,9 @@ def __get_license(l):
 
 
 def __add_header(src_file, header, comment):
-    commented_header = [''.join([comment, s, '\n']) for s in header.split('\n')]
+    """Prepends a license header to a file."""
+    commented_header = [''.join([comment, ' ', s, '\n']) for s in header.split('\n')]
+    commented_header[-1] = '\n'
 
     with open(src_file, 'r') as f:
         file_lines = commented_header + f.readlines()
@@ -91,18 +92,22 @@ def add_license():
 
     if header:
         if 'filetypes' not in defaults:
-            sys.exit('fatal: missing "filetypes" object in ~/.licenser.json')
+            print("warning: filetypes object missing from ~/.licenser.json")
+        else:
+            header = header.format(author=author, year=year, project=project)
+            filetypes = defaults.get('filetypes')
+            exts = tuple(filetypes.keys())
 
-        header = header.format(author=author, year=year, project=project)
-        filetypes = defaults.get('filetypes')
-        exts = tuple(filetypes.keys())
+            for root, dirs, files in os.walk(os.getcwd()):
+                for f in files:
+                    if f.endswith(exts):
+                        with open(f) as src:
+                            first_line = f.readline()
 
-        for root, dirs, files in os.walk(os.getcwd()):
-            for f in files:
-                if f.endswith(exts):
-                    src_file = os.path.join(root, f)
-                    comment = filetypes.get(os.path.splitext(src_file)[1])
-                    __add_header(src_file, header, comment)
+                        if project not in first_line:  # check for existing license
+                            src_file = os.path.join(root, f)
+                            comment = filetypes.get(os.path.splitext(src_file)[1])
+                            __add_header(src_file, header, comment)
 
 
 if __name__ == '__main__':

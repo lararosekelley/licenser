@@ -68,6 +68,16 @@ def __get_license(l):
     return (license, header)
 
 
+def __add_header(src_file, header, comment):
+    commented_header = [''.join([comment, s, '\n']) for s in header.split('\n')]
+
+    with open(src_file, 'r') as f:
+        file_lines = commented_header + f.readlines()
+
+    with open(src_file, 'w') as f:
+        f.writelines(file_lines)
+
+
 def add_license():
     """Add a license to a file."""
     defaults = __get_defaults()
@@ -87,13 +97,12 @@ def add_license():
         filetypes = defaults.get('filetypes')
         exts = tuple(filetypes.keys())
 
-        matches = []
         for root, dirs, files in os.walk(os.getcwd()):
             for f in files:
                 if f.endswith(exts):
-                    matches.append(os.path.join(root, f))
-
-        print(matches)
+                    src_file = os.path.join(root, f)
+                    comment = filetypes.get(os.path.splittext(src_file)[1])
+                    __add_header(src_file, header, comment)
 
 
 if __name__ == '__main__':

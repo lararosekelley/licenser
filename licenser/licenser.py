@@ -102,7 +102,7 @@ def add_license():
                 for f in files:
                     if f.endswith(exts):
                         with open(f) as src:
-                            first_line = f.readline()
+                            first_line = src.readline()
 
                         if project not in first_line:  # check for existing license
                             src_file = os.path.join(root, f)

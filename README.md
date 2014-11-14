@@ -46,7 +46,7 @@ If you don't want the file extension on your license, just add the "--no" flag a
 If you're like me and don't change your name very often, you can save time by creating
 a config file in your home directory.
 
-It needs to look like this:
+It needs to look something like this:
 
 ```json
 {
@@ -61,6 +61,7 @@ It needs to look like this:
     "ignore": [
         "node_modules",
         "lib",
+        "bin",
         "dist",
         "Gruntfile.js",
         ".git"

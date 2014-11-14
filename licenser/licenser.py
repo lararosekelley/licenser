@@ -2,19 +2,19 @@
 
 from argparse import ArgumentParser as parser
 from datetime import date
-from os.path import expanduser
-from os.path import isfile
-from os.path import dirname
+import fnmatch
 import json
+import sys
+import os
 
-config_file = expanduser('~/.licenser.json')
-pwd = dirname(__file__)
+config_file = os.path.expanduser('~/.licenser.json')
+pwd = os.path.dirname(__file__)
 licenses = ['GPL', 'Apache', 'Mozilla', 'MIT', 'BSD']
 
 
 def __get_defaults():
     """Return the default options from the ~/.licenser.json file."""
-    if isfile(config_file):
+    if os.path.isfile(config_file):
         with open(config_file) as f:
             defaults = json.load(f)
         return defaults
@@ -59,10 +59,10 @@ def __get_license(l):
     license = None
     header = None
 
-    if isfile(license_file):
+    if os.path.isfile(license_file):
         with open(license_file) as f:
             license = f.read()
-    if isfile(license_header):
+    if os.path.isfile(license_header):
         with open(license_header) as f:
             header = f.read()
 
@@ -76,11 +76,19 @@ def add_license():
     license, header = __get_license(license_name)
 
     license = license.format(author=author, year=year, project=project)
-    if header:
-        header = header.format(author=author, year=year, project=project)
 
     with open('LICENSE' + ext, 'w') as f:
         f.write(license)
+
+    if header:
+        header = header.format(author=author, year=year, project=project)
+
+        matches = []
+        for root, dirnames, filenames in os.walk(os.getcwd()):
+            for filename in fnmatch.filter(filenames, '*.py'):
+                matches.append(os.path.join(root, filename))
+
+        print(matches)
 
 
 if __name__ == '__main__':

@@ -77,4 +77,4 @@ want to switch licenses, you'll have to manually remove the headers from your so
 
 ### Contributing
 
-I accpet pull requests!
+I accept pull requests!

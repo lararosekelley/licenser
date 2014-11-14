@@ -2,7 +2,6 @@
 
 from argparse import ArgumentParser as parser
 from datetime import date
-import fnmatch
 import json
 import sys
 import os
@@ -81,12 +80,18 @@ def add_license():
         f.write(license)
 
     if header:
+        if 'filetypes' not in defaults:
+            sys.exit('fatal: missing "filetypes" object in ~/.licenser.json')
+
         header = header.format(author=author, year=year, project=project)
+        filetypes = defaults.get('filetypes')
+        exts = tuple(defaults.keys())
 
         matches = []
-        for root, dirnames, filenames in os.walk(os.getcwd()):
-            for filename in fnmatch.filter(filenames, '*.py'):
-                matches.append(os.path.join(root, filename))
+        for root, dirs, files in os.walk(os.getcwd()):
+            for f in files:
+                if f.endswith(exts):
+                    matches.append(os.path.join(root, f))
 
         print(matches)
 

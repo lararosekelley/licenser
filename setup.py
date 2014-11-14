@@ -11,13 +11,13 @@ pwd = dirname(__file__)
 
 setup(
     name="licenser",
-    version="1.0.5",
+    version="1.1.0",
     description="Quickly add an open-source license to your project.",
     author="Ty-Lucas Kelley",
     author_email="tylucaskelley@gmail.com",
     license="MIT",
     url="http://github.com/tylucaskelley/licenser",
-    download_url="https://github.com/tylucaskelley/licenser/tarball/v1.0.5",
+    download_url="https://github.com/tylucaskelley/licenser/tarball/v1.1.0",
     long_description=open("README.md").read(),
     classifiers=[
         "Programming Language :: Python",

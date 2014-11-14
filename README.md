@@ -63,7 +63,8 @@ It needs to look like this:
 
 These defaults can be overridden by using the normal command-line arguments. They're optional,
 but if you want to use a license that recommends prepending your source code files with a header,
-you'll need the `filetypes` object.
+you'll need the `filetypes` object, which contains key-value pairs of file extensions and their
+respective syntax for one-line comments.
 
 Leaving out the `filetypes` object will simply mean skipping the step of prepending your code,
 and will result in a warning message upon program exit:
@@ -73,3 +74,7 @@ and will result in a warning message upon program exit:
 To avoid prepending the same source code files more than once (if you call `licenser` multiple times),
 the script will skip any files that contain the commented out project name on the first line. If you
 want to switch licenses, you'll have to manually remove the headers from your source code.
+
+### Contributing
+
+I accpet pull requests!

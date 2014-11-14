@@ -113,7 +113,7 @@ def add_license():
                             with open(src_file) as src:
                                 first_line = src.readline()
 
-                            if first_line is not comment + ' ' + project:
+                            if comment + ' ' + project not in first_line:
                                 __add_header(src_file, header, comment)
 
 

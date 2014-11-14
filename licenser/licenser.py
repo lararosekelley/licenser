@@ -101,7 +101,7 @@ def add_license():
             for f in files:
                 if f.endswith(exts):
                     src_file = os.path.join(root, f)
-                    comment = filetypes.get(os.path.splittext(src_file)[1])
+                    comment = filetypes.get(os.path.splitext(src_file)[1])
                     __add_header(src_file, header, comment)
 
 

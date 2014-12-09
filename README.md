@@ -4,6 +4,8 @@
 
 ---
 
+![licenser](https://pypip.in/download/licenser/badge.svg)
+
 Finding and adding a license to your project is an annoying process,
 and can be quite tedious depending on the license you choose.
 

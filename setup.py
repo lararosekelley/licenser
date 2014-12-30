@@ -6,16 +6,16 @@ except ImportError:
     from distutils.core import setup
 
 config = {
-    name = 'licenser',
-    version = '1.2.1',
-    description = 'Quickly add an open-source license to your project.',
-    author = 'Ty-Lucas Kelley',
-    author_email = 'tylucaskelley@gmail.com',
-    license = 'MIT',
-    url = 'http://github.com/tylucaskelley/licenser',
-    download_url = 'https://github.com/tylucaskelley/licenser/tarball/v1.2.1',
-    long_description = open('README.md').read(),
-    classifiers = [
+    name: 'licenser',
+    version: '1.2.2',
+    description: 'Quickly add an open-source license to your project.',
+    author: 'Ty-Lucas Kelley',
+    author_email: 'tylucaskelley@gmail.com',
+    license: 'MIT',
+    url: 'http://github.com/tylucaskelley/licenser',
+    download_url: 'https://github.com/tylucaskelley/licenser/tarball/v1.2.2',
+    long_description: open('README.md').read(),
+    classifiers: [
         'Programming Language :: Python',
         'Operating System :: MacOS :: MacOS X',
         'Operating System :: POSIX :: Linux',
@@ -23,18 +23,18 @@ config = {
         'Intended Audience :: Developers',
         'Topic :: Utilities'
     ],
-    entry_points = {
+    entry_points: {
         'console_scripts': [
             'licenser = licenser:main'
         ]
     },
-    packages = [
+    packages: [
         'licenser'
     ],
-    package_dir = {
+    package_dir: {
         'licenser': 'licenser'
     },
-    package_data = {
+    package_data: {
         'licenser': [
             'licenses/*'
         ]

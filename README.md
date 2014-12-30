@@ -94,5 +94,4 @@ third-party files, or minified JavaScript code.
 I accept pull requests! There are some potential improvements I've been thinking about:
 
 * Override global `ignore` and `filetypes` settings with a project-specific `.licenserconfig` file
-* Write tests
 * Switch to multi-line comments (which will help with supporting CSS and HTML)

@@ -7,20 +7,24 @@ except ImportError:
 
 config = {
     'name': 'licenser',
-    'version': '1.2.3',
-    'description': 'Quickly add an open-source license to your project.',
+    'version': '2.0.0',
+    'description': 'Command line tool for adding open source licenses to your projects',
     'author': 'Ty-Lucas Kelley',
     'author_email': 'tylucaskelley@gmail.com',
     'license': 'MIT',
     'url': 'http://github.com/tylucaskelley/licenser',
-    'download_url': 'https://github.com/tylucaskelley/licenser/tarball/v1.2.3',
+    'download_url': 'https://github.com/tylucaskelley/licenser/tarball/v2.0.0',
     'long_description': open('README.md').read(),
     'classifiers': [
-        'Programming Language :: Python',
+        'Development Status :: 5 - Production/Stable',
+        'Intended Audience :: Developers',
+        'Natural Language :: English',
+        'License :: OSI Approved :: MIT License',
         'Operating System :: MacOS :: MacOS X',
         'Operating System :: POSIX :: Linux',
-        'License :: OSI Approved :: MIT License',
-        'Intended Audience :: Developers',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.5',
         'Topic :: Utilities'
     ],
     'entry_points': {
@@ -28,6 +32,12 @@ config = {
             'licenser = licenser:main'
         ]
     },
+    'keywords': [
+        'cli',
+        'license',
+        'tools',
+        'script'
+    ]
     'packages': [
         'licenser'
     ],

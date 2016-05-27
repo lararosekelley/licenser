@@ -30,7 +30,7 @@ to suggest the addition of other licenses!
 ```
 
 Alternatively, grab the
-[zip](https://github.com/tylucaskelley/licenser/tarball/v2.0.3)!
+[zip](https://github.com/tylucaskelley/licenser/tarball/v2.0.4)!
 
 ### Usage
 

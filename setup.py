@@ -7,13 +7,13 @@ except ImportError:
 
 config = {
     'name': 'licenser',
-    'version': '2.0.2',
+    'version': '2.0.3',
     'description': 'Tool for adding open source licenses to your projects',
     'author': 'Ty-Lucas Kelley',
     'author_email': 'tylucaskelley@gmail.com',
     'license': 'MIT',
     'url': 'http://github.com/tylucaskelley/licenser',
-    'download_url': 'https://github.com/tylucaskelley/licenser/tarball/v2.0.2',
+    'download_url': 'https://github.com/tylucaskelley/licenser/tarball/v2.0.3',
     'long_description': open('README.md').read(),
     'classifiers': [
         'Development Status :: 5 - Production/Stable',
@@ -30,7 +30,7 @@ config = {
     ],
     'entry_points': {
         'console_scripts': [
-            'licenser = licenser:main'
+            'licenser = licenser.licenser:main'
         ]
     },
     'keywords': [

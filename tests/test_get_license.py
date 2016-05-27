@@ -14,7 +14,7 @@ def test_get_licenses():
         ('apache', 'apache-2.0'),
         ('mpl-2', 'mpl-2.0'),
         ('bsd2clause', 'bsd-2-clause'),
-        ('agpl', 'agpl-3.0')
+        ('agpl3', 'agpl-3.0')
     ]
 
     for pair in expected_matches:

@@ -8,7 +8,7 @@ except ImportError:
 config = {
     'name': 'licenser',
     'version': '2.0.0',
-    'description': 'Command line tool for adding open source licenses to your projects',
+    'description': 'Tool for adding open source licenses to your projects',
     'author': 'Ty-Lucas Kelley',
     'author_email': 'tylucaskelley@gmail.com',
     'license': 'MIT',
@@ -25,6 +25,7 @@ config = {
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.5',
+        'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Utilities'
     ],
     'entry_points': {
@@ -46,7 +47,7 @@ config = {
     },
     'package_data': {
         'licenser': [
-            'licenses/*'
+            'assets/*'
         ]
     }
 }

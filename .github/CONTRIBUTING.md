@@ -35,7 +35,7 @@ that simply states "X/Y/Z isn't working!" will be ignored.
 Submit an [issue][2] to request a new feature. Features fall into one of two
 categories:
 
-1. **Major**: Major changes should be disucssed with me via [email][1]. I'm
+1. **Major**: Major changes should be discussed with me via [email][1]. I'm
 always open to suggestions and will get back to you as soon as I can!
 2. **Minor**: A minor feature can simply be added via a [pull request][3].
 
@@ -57,7 +57,8 @@ this process again until the changes are merged.
 
 Please follow the coding style conventions detailed below:
 
-{guidelines}
+Your code should meet all [pep8](http://pep8.readthedocs.io/en/latest/) guidelines;
+the only exception is that the max line length accepted is 120.
 
 [1]: mailto:tylucaskelley@gmail.com
 [2]: https://github.com/tylucaskelley/licenser/issues/new

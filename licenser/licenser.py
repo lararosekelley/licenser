@@ -1,121 +1,96 @@
-#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+'''
+licenser
+========
+
+Tool for adding open source licenses to your projects
+'''
 
 from argparse import ArgumentParser as parser
 from datetime import date
-import json
 import os
 
-config_file = os.path.expanduser('~/.licenser.json')
-pwd = os.path.dirname(__file__)
-licenses = ['GPL', 'Apache', 'Mozilla', 'MIT', 'BSD']
+cfg = os.path.expanduser('~/.licenser')
+cwd = os.getcwd()
+
+matches = [
+    'apache-2.0',
+    'bsd-2-clause',
+    'bsd-3-clause',
+    'epl-1.0',
+    'gpl-2.0',
+    'gpl-3.0',
+    'mit',
+    'mpl-2.0'
+]
 
 
-def __get_defaults():
-    """Return the default options from the ~/.licenser.json file."""
-    if os.path.isfile(config_file):
-        with open(config_file) as f:
-            defaults = json.load(f)
+def get_license(name='mit'):
+    '''
+    returns the requested license
+    '''
+
+    return name
+
+
+def get_defaults():
+    '''
+    reads cfg for default values
+    '''
+
+    defaults = {}
+
+    if os.path.isfile(cfg):
+        with open(cfg) as f:
+
+            for line in f:
+                line = line.strip()
+                if '=' not in line or line.startswith('#'):
+                    continue
+
+                k, v = line.split('=', 1)
+                v = v.strip('"').strip("'")
+
+                defaults[k] = v
         return defaults
     else:
         return {}
 
 
-def __get_args(defaults):
-    """Parse command line arguments and merge them with the defaults."""
-    need_name = False if 'name' in defaults else True
-    need_email = False if 'email' in defaults else True
-    need_license = False if 'license' in defaults else True
+def get_args():
+    '''
+    parse command line args & override defaults
 
-    p = parser(description='quickly add an open-source license to your project')
+    returns
+    '''
 
-    p.add_argument('-l', dest='license', required=need_license, help='license to add')
-    p.add_argument('-e', dest='email', required=need_email, help='your email address')
-    p.add_argument('-n', dest='name', required=need_name, help='your name')
-    p.add_argument('-p', dest='project', required=True, help='project name')
-    p.add_argument('--no', action='store_true', required=False, help='remove .txt')
+    defaults = get_defaults()
+    p = parser(description='tool for adding open source licenses to your projects')
+
+    _name = False if defaults.get('name') else True
+    _email = False if defaults.get('email') else True
+
+    p.add_argument('-n', dest='name', required=_name, help='name')
+    p.add_argument('-e', dest='email', required=_email, help='email')
+    p.add_argument('-l', dest='license', required=False, help='license')
+    p.add_argument('-p', dest='project', required=False, help='project')
+    p.add_argument('--txt', action='store_true', required=False, help='add .txt')
 
     args = p.parse_args()
 
     name = args.name if args.name else defaults.get('name')
     email = args.email if args.email else defaults.get('email')
-    author = name + ' <' + email + '>'
-    license = args.license if args.license else defaults.get('license')
-    project = args.project
-    year = str(date.today().year)
-    ext = '' if args.no else '.txt'
+    license = get_license(args.license) if args.license else defaults.get('license')
+    project = args.project if args.project else os.getcwd().split('/')[-1]
+    ext = '.txt' if args.txt else ''
+    args.year = str(date.today().year)
 
-    if license not in licenses:
-        p.exit(1, 'fatal: license %s does not exist\n' % license)
-
-    return (author, license, project, year, ext)
+    return (name, email, license, project, ext, year)
 
 
-def __get_license(l):
-    """Grabs the text from the specified license and header files and formats them."""
-    license_file = pwd + '/licenses/' + l
-    license_header = pwd + '/licenses/' + l + '_header'
-    license = None
-    header = None
-
-    if os.path.isfile(license_file):
-        with open(license_file) as f:
-            license = f.read()
-    if os.path.isfile(license_header):
-        with open(license_header) as f:
-            header = f.read()
-
-    return (license, header)
-
-
-def __add_header(src_file, header, comment):
-    """Prepends a license header to a file."""
-    commented_header = [''.join([comment, ' ', s, '\n']) for s in header.split('\n')]
-    commented_header[-1] = '\n'
-
-    with open(src_file, 'r') as f:
-        file_lines = commented_header + f.readlines()
-
-    with open(src_file, 'w') as f:
-        f.writelines(file_lines)
-
-
-def add_license():
-    """Add a license to a file."""
-    defaults = __get_defaults()
-    author, license_name, project, year, ext = __get_args(defaults)
-    license, header = __get_license(license_name)
-
-    license = license.format(author=author, year=year, project=project)
-
-    with open('LICENSE' + ext, 'w') as f:
-        f.write(license)
-
-    if header:
-        if 'filetypes' not in defaults:
-            print("warning: filetypes object missing from ~/.licenser.json")
-        else:
-            header = header.format(author=author, year=year, project=project)
-            filetypes = defaults.get('filetypes')
-            exts = tuple(filetypes.keys())
-
-            for root, dirs, files in os.walk(os.getcwd(), topdown=True):
-                ignore = True if 'ignore' in defaults else False
-
-                if ignore:
-                    files = [f for f in files if f not in defaults['ignore']]
-                    dirs[:] = [d for d in dirs if d not in defaults['ignore']]
-
-                for f in files:
-                    if f.endswith(exts):
-                            src_file = os.path.join(root, f)
-                            comment = filetypes.get(os.path.splitext(src_file)[1])
-
-                            with open(src_file) as src:
-                                first_line = src.readline()
-
-                            if comment + ' ' + project not in first_line:
-                                __add_header(src_file, header, comment)
-
+def main():
+    print get_args()
 
 if __name__ == '__main__':
-    add_license()
+    main()

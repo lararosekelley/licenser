@@ -4,9 +4,9 @@ Tool for adding open source licenses to your projects
 
 ---
 
-[![PyPI](https://img.shields.io/pypi/v/licenser.svg?maxAge=2592000)]()
-[![PyPI](https://img.shields.io/pypi/pyversions/licenser.svg?maxAge=2592000)]()
-[![Travis](https://img.shields.io/travis/tylucaskelley/licenser.svg?maxAge=2592000)]()
+[![PyPI](https://img.shields.io/pypi/v/licenser.svg?maxAge=2592000)](http://pypi.python.org/pypi/licenser)
+[![PyPI](https://img.shields.io/pypi/pyversions/licenser.svg?maxAge=2592000)](http://pypi.python.org/pypi/licenser)
+[![Travis](https://img.shields.io/travis/tylucaskelley/licenser.svg?maxAge=2592000)](https://travis-ci.org/tylucaskelley/licenser)
 
 Finding and adding a license to your project is an annoying process,
 and can be quite tedious depending on the license you choose.

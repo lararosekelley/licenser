@@ -37,26 +37,23 @@ Alternatively, grab the
 From the command line:
 
 ```bash
-$ licenser -n "Ty-Lucas Kelley" -e "tylucaskelley@gmail.com" [-l BSD] [-p project] [--txt]
+$ licenser -n "Your Name" -e "you@example.com" -l "license name" -p "project name"
 ```
 
-Name and email are the only needed parameters. License defaults to `MIT` and
-project defaults to the current directory name.
+Name, email, and license are the three required parameters; project will default
+to the current directory name if you don't include it.
 
 `--txt` will add the `.txt` extension to the `LICENSE` file.
 
 ### Configuration
 
 If you're like me and don't change your name very often, you can save time by
-storing your defaults in `~/.licenser`:
+storing your defaults for name, email, and license in `~/.licenser`:
 
-```json
-{
-    "name": "Ty-Lucas Kelley",
-    "email": "tylucaskelley@gmail.com",
-    "license": "MIT",
-    ".txt": true
-}
+```bash
+name="Your Name"
+email="you@example.com"
+license="MIT"
 ```
 
 ### Contributing
@@ -65,8 +62,12 @@ I accept [pull requests](https://github.com/tylucaskelley/licenser/compare)!
 There are some potential improvements I've been thinking about:
 
 1. Prepending headers to source code files for licenses that recommend it
-2. Pull licenses from an online API
+2. Pull licenses from an online API (maybe)
 3. Support for more licenses
 
 **Tip**: While working on a feature or bug, you can test your script by running
-`python -m licenser` from the root project directory.
+`python licenser` from the root project directory.
+
+Additionally, make sure that all tests pass when you add features, and write
+new unit tests if you add a function. Tests can be run using the `nosetests`
+command from the root project directory.

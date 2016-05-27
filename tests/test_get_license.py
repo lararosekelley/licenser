@@ -12,7 +12,7 @@ def test_get_licenses():
         ('mit', 'mit'),
         ('gpl2', 'gpl-2.0'),
         ('apache', 'apache-2.0'),
-        ('mpl2', 'mpl-2.0'),
+        ('mpl-2', 'mpl-2.0'),
         ('bsd2clause', 'bsd-2-clause'),
         ('agpl', 'agpl-3.0')
     ]

@@ -1,6 +1,9 @@
 # Submit a feature request or bug report
 
-Replace any "X" with your information.
+Replace any "X" with your information. Before you submit an issue,
+check to see if this issue has [already been reported][1].
+
+Any questions should be directed to @tylucaskelley.
 
 ---
 
@@ -31,3 +34,5 @@ X
 ### Other relevant information:
 
 X
+
+[1]: https://github.com/tylucaskelley/licenser/issues

@@ -7,11 +7,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-with open('licenser/__init__.py', 'r') as f:
-        version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
-                            f.read(), re.MULTILINE).group(1)
-if not version:
-    raise RuntimeError('Cannot find version information')
+version = '2.1.2'
 
 config = {
     'name': 'licenser',

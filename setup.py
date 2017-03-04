@@ -60,7 +60,7 @@ config = {
             'assets/*'
         ]
     },
-    'test_requires': [
+    'tests_require': [
         'nose==1.3.7'
     ]
 }

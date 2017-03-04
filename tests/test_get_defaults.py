@@ -1,6 +1,7 @@
-from nose.tools import *
-from tests import *
+# -*- coding: utf-8 -*-
+
 from licenser import licenser
+from tests import cwd
 
 
 def test_get_defaults():

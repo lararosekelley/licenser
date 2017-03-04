@@ -7,6 +7,7 @@ licenser
 Tool for adding open source licenses to your projects
 '''
 
-__copyright__ = 'Copyright (c) 2016 Ty-Lucas Kelley'
+__copyright__ = 'Copyright (c) 2017 Ty-Lucas Kelley'
 __license__ = 'MIT License (see LICENSE)'
 __title__ = 'licenser'
+__version__ = '2.1.0'

@@ -1,5 +1,5 @@
-from nose.tools import *
-from tests import *
+# -*- coding: utf-8 -*-
+
 from licenser import licenser
 
 

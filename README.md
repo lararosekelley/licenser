@@ -21,12 +21,12 @@ to suggest the addition of other licenses!
 
 ### Prerequisites
 
-* Python 2.7 or Python 3.5
+* Python 2.7.x or Python 3.6.x
 
 ### Installation
 
 ```bash
-    $ pip install licenser
+$ pip install licenser
 ```
 
 Alternatively, grab the
@@ -56,18 +56,69 @@ email="you@example.com"
 license="MIT"
 ```
 
+Now any time you run `licenser`, you don't need to provide arguments unless you
+want to override defaults.
+
+### Development Setup
+
+I recommend using `pyenv` with the `pyenv-virtualenv` plugin. [This][1]
+document provides information on setting that up.
+
+Regardless, make sure you have Python 2.7 or 3.6 installed in some form.
+
+**With pyenv**
+
+First, clone the repository:
+
+```bash
+$ git clone https://github.com/tylucaskelley/licenser && cd licenser
+```
+
+Next, create your virtual environment and activate it:
+
+```bash
+$ pyenv virtualenv venv && pyenv activate venv
+```
+
+Finally, install the dependencies:
+
+```bash
+$ pip install -r requirements.txt
+```
+
+Now you're good to go! Run tests with the `nosetests` command and test out the
+script with `python licenser [args]`.
+
+**Without pyenv**
+
+Clone the repository:
+
+```bash
+$ git clone https://github.com/tylucaskelley/licenser && cd licenser
+```
+
+Install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Now you're good to go! Run tests with the `nosetests` command and test out the
+script with `python licenser [args]`.
+
 ### Contributing
 
-I accept [pull requests](https://github.com/tylucaskelley/licenser/compare)!
-There are some potential improvements I've been thinking about:
+See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for details.
+
+I accept [pull requests](https://github.com/tylucaskelley/licenser/compare);
+there are some potential improvements I've been thinking about:
 
 1. Prepending headers to source code files for licenses that recommend it
 2. Pull licenses from an online API (maybe)
 3. Support for more licenses
 
-**Tip**: While working on a feature or bug, you can test your script by running
-`python licenser` from the root project directory.
-
 Additionally, make sure that all tests pass when you add features, and write
 new unit tests if you add a function. Tests can be run using the `nosetests`
 command from the root project directory.
+
+[1]: https://github.com/yyuu/pyenv-virtualenv#installation

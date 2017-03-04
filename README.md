@@ -21,7 +21,7 @@ to suggest the addition of other licenses!
 
 ### Prerequisites
 
-* Python 2.7.x or Python 3.6.x
+* Python 2.6+ or Python 3.4+
 
 ### Installation
 

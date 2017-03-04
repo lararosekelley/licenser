@@ -10,16 +10,9 @@ Tool for adding open source licenses to your projects.
 from argparse import ArgumentParser as parser
 from datetime import date
 import os
-import re
-
-# get version info
-with open('licenser/__init__.py', 'r') as f:
-        version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', f.read(), re.MULTILINE).group(1)
-
-if not version:
-    raise RuntimeError('Cannot find version information')
 
 # global variables
+version = '2.2.0'
 cfg = os.path.expanduser('~/.licenser')
 cwd = os.path.dirname(__file__)
 licenses_loc = '/assets/'

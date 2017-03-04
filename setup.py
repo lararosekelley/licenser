@@ -1,13 +1,11 @@
 #!/usr/bin/env python
 
-import re
-
 try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
 
-version = '2.1.2'
+version = '2.2.0'
 
 config = {
     'name': 'licenser',
